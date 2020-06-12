@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-$LOAD_PATH.push('../../fluentd/lib')
+$LOAD_PATH.push('fluentd/lib')
 
 require 'fluent/config/v1_parser'
 require 'optparse'
