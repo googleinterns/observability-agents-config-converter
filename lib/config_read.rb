@@ -11,6 +11,7 @@ class ConfigFile
     @argv = argv
     prepare_option_parser
     parse_options
+    @file_parse = parse_config
     print_configurations(@file_parse)
   end
 
@@ -24,24 +25,28 @@ class ConfigFile
   def usage(message = nil)
     puts @parser.to_s
     puts "\nError: #{message}" if message
-    exit(false)
   end
 
   def parse_options
     # parses the arguments, quits program if arguments are invalid
     raise 'Must specify path of file' if @argv.empty?
     raise 'Only one argument is needed' if @argv.size > 1
-    raise 'Enter a valid file path' unless File.exist?(@argv[0]) &&
-                                           (File.extname(@argv[0]) == '.conf')
-
-    # extracts required information and parses the config file
-    @file_str = File.read(@argv[0])
-    @file_name = File.basename(@argv[0])
-    @file_dir = File.dirname(@argv[0])
-    @file_parse = Fluent::Config::V1Parser.parse(@file_str, @file_name,
-                                                 @file_dir, Kernel.binding)
+    raise 'Enter a valid file path' unless File.exist?(@argv[0])
   rescue StandardError => e
     usage(e)
+    exit(false)
+  end
+
+  def parse_config
+    # extracts required information and parses the config file
+    file_str = File.read(@argv[0])
+    file_name = File.basename(@argv[0])
+    file_dir = File.dirname(@argv[0])
+    return Fluent::Config::V1Parser.parse(file_str, file_name,
+                                                 file_dir, Kernel.binding)
+  rescue StandardError => e
+    usage(e)
+    exit(false)
   end
 
   def print_configurations(ele_obj, depth = 0)
