@@ -4,7 +4,7 @@ require 'fluent/config/v1_parser'
 require 'optparse'
 
 # Accepts a file path and prints out parsed version
-class ConfigFile
+class ConfigParser
   def initialize(argv = ARGV)
     @argv = argv
     prepare_input_parser
@@ -68,4 +68,4 @@ class ConfigFile
   end
 end
 
-ConfigFile.new
+ConfigParser.new
