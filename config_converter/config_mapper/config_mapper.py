@@ -11,7 +11,6 @@ To do:
     1. Stats like #fields converted, output as schema.
     2. Generate logs.
     3. Tests for right logs, stats.
-    4. Extensive testing with sample files
 """
 
 import sys

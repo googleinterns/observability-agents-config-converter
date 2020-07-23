@@ -43,8 +43,8 @@ def test_in_tail_deprecated():
     check_equality('in_tail_deprecated')
 
 
-def test_in_tail():
-    check_equality('in_tail')
+def test_in_tail_normal():
+    check_equality('in_tail_normal')
 
 
 def test_in_tail_unknown():
@@ -57,6 +57,18 @@ def test_in_tail_double():
 
 def test_in_tail_include():
     check_equality('in_tail_include')
+
+
+def test_in_syslog_endpoint():
+    check_equality('in_syslog_endpoint')
+
+
+def test_in_tail_rabbitmq():
+    check_equality('in_tail_rabbitmq')
+
+
+def test_in_tail_chef():
+    check_equality('in_tail_chef')
 
 
 def test_in_tail_cli():
