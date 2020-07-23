@@ -55,6 +55,10 @@ def test_in_tail_double():
     check_equality('in_tail_double')
 
 
+def test_in_tail_include():
+    check_equality('in_tail_include')
+
+
 def test_in_tail_cli():
     config_name = 'in_tail_cli'
     with tempfile.TemporaryDirectory() as tmpdirname:
