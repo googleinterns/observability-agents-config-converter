@@ -26,8 +26,6 @@ logs_module:
     name: test
     type: file
   - file_source_config:
-      parser:
-        type: none
       path: path/to/file
     name: second
     type: file

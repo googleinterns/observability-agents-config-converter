@@ -4,15 +4,11 @@ logs_module:
   sources:
   - file_source_config:
       checkpoint_file: /var/lib/google-fluentd/pos/rabbitmq-startup.pos
-      parser:
-        type: none
       path: /var/log/rabbitmq/startup_log
     name: rabbitmq-startup
     type: file
   - file_source_config:
       checkpoint_file: /var/lib/google-fluentd/pos/rabbitmq-startup_err.pos
-      parser:
-        type: none
       path: /var/log/rabbitmq/startup_err
     name: rabbitmq-startup_err
     type: file

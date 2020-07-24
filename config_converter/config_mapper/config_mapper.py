@@ -122,13 +122,14 @@ def _convert_parse_dir(specific: dict, p: config_pb2.Param) -> None:
     """Create parser dir in master config."""
     parser_type_map = {
         'multiline': 'multiline',
-        'none': 'none',
         'regex': 'regex',
         'apache2': 'regex',
         'apache_error': 'regex',
         'json': 'json',
         'nginx': 'regex'
     }
+    if p.name == 'format' and p.value == 'none':
+        return  # special case of formatting
     specific['parser'] = specific.get('parser', dict())
     if p.name == 'expression':
         if 'regex_parser_config' not in specific['parser']:
