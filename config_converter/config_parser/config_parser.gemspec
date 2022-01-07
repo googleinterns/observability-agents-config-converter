@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'fluentd', '1.11.0'
   s.add_development_dependency 'rake', '13.0.1'
   s.add_development_dependency 'rubocop', '0.85.0'
-  s.add_runtime_dependency 'google-protobuf', '3.12.2'
+  s.add_runtime_dependency 'google-protobuf', '3.19.2'
   s.add_runtime_dependency 'OptionParser', '0.5.1'
   s.add_development_dependency 'test-unit', '3.3.6'
 end
